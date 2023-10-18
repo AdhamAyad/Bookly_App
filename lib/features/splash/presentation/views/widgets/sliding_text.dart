@@ -13,11 +13,15 @@ class SlidingText extends StatelessWidget {
     return AnimatedBuilder( //todo: AnimatedBuilder → trebild this widget only when animat
       animation: slideingAnimation,
       builder:(context ,_) => SlideTransition( //! that make animation for widget
+      
        position: slideingAnimation , //? take the object of animation that we make to do the animation on this widget
-        child: const Text('Read A Free Books!',
+        child: const Text('Read A Free Books!',style: TextStyle(
+          fontWeight: FontWeight.bold
+        ),
         textAlign: TextAlign.center //? to put it in center
         ,),
       ),
     );
   }
 }
+
