@@ -10,7 +10,7 @@ class SlidingText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedBuilder( //todo: AnimatedBuilder → trebild this widget only when animat
+    return AnimatedBuilder( //todo: AnimatedBuilder → to rebild this widget only when animat
       animation: slideingAnimation,
       builder:(context ,_) => SlideTransition( //! that make animation for widget
       

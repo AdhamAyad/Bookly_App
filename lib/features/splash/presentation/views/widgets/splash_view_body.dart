@@ -12,19 +12,19 @@ class SplashViewBody extends StatefulWidget {
   @override
   State<SplashViewBody> createState() => _SplashViewBodyState();
 }
-
+//? with SingleTickerProviderStateMixin → that give the correct time for animation
 class _SplashViewBodyState extends State<SplashViewBody> with SingleTickerProviderStateMixin{
   late AnimationController animationController; //? late → give it value after a few time , animation controller → that give time to animation from 0 to 1
-  late Animation<Offset> slideingAnimation; //? make object of animation and give it name of animation
- late Animation<Offset> slideingLogoAnimation; //?
+  late Animation<Offset> slideingTextAnimation; //? make object of animation and give it name of animation
+  late Animation<Offset> slideingLogoAnimation; //?
  //! SingleTickerProviderStateMixin → handle time of any thing what we make same as clock
 
   @override
   void initState() { //? initState → it runs before this widget runs
    
     super.initState();
-    InitSlidingAnimation(); //? to run animation
-    InitSlidingLogo(); //? to run animation
+    InitSlidingAnimation(); //? to run text animation
+    InitSlidingLogo(); //? to run logo animation
     NavigateToHomeAfter2Sec();
   }
 
@@ -47,7 +47,7 @@ class _SplashViewBodyState extends State<SplashViewBody> with SingleTickerProvid
         
         const SizedBox(height: 4,),
 
-       SlidingText(slideingAnimation: slideingAnimation),
+       SlidingText(slideingAnimation: slideingTextAnimation),
       ],
     );
   }
@@ -61,7 +61,7 @@ class _SplashViewBodyState extends State<SplashViewBody> with SingleTickerProvid
 
   void InitSlidingAnimation() {
     animationController = AnimationController(vsync: this, duration:const Duration(seconds: 1)); //? contriller that control animation time
-    slideingAnimation = Tween<Offset>(begin:const Offset(0,2) ,end: Offset.zero).animate(animationController); //? animation what to do
+    slideingTextAnimation = Tween<Offset>(begin:const Offset(0,2) ,end: Offset.zero).animate(animationController); //? animation what to do
     animationController.forward(); //? to run animation
     // slideingAnimation.addListener(() {
     //   setState(() { //todo: we use it when we dont use animated builder
