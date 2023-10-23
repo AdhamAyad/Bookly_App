@@ -11,7 +11,7 @@ void main() {
 
 class BooklyApp extends StatelessWidget {
   const BooklyApp({super.key});
-
+  //! .copyWith( → بنشا نسخه بس بعدل عليها سواء كلاس او اى شئ
   @override
   Widget build(BuildContext context) {
     return  GetMaterialApp( //? from get package ,get → have transition and faster than materialapp and less code than normal
