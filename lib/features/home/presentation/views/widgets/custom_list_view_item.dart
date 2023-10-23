@@ -6,8 +6,8 @@ class CustomListViewItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AspectRatio( //! save responsive of hight and width
-    aspectRatio: 2.7/4, //?width/hight
+    return AspectRatio( //! save responsive of hight and width to be good on another device
+    aspectRatio: 2.6/4, //?width/hight
       child: Container(
         // height: MediaQuery.of(context).size.height * .36, //todo: use media quary to be responsive with any device
         // width: MediaQuery.of(context).size.width * .4,
