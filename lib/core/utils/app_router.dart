@@ -1,5 +1,6 @@
 //! manage routers of app
 
+import 'package:bookly/features/home/presentation/views/book_details_view.dart';
 import 'package:bookly/features/home/presentation/views/home_view.dart';
 import 'package:bookly/features/splash/presentation/splash_view.dart';
 import 'package:go_router/go_router.dart';
@@ -7,6 +8,7 @@ import 'package:go_router/go_router.dart';
 abstract class AppRouter
 {
  static const kHomeView = '/HomeView';
+ static const kBookDetailsView = '/BookDetailsView';
 
  static final router = GoRouter( //? router → to make navigation  ahen using material app.router
   routes: [
@@ -18,6 +20,11 @@ abstract class AppRouter
     GoRoute(
       path: kHomeView, //? this name that we will call with when we navigate to it by push
       builder: (context, state) => const HomeView(),
+    ),
+
+    GoRoute(
+      path: kBookDetailsView, //? this name that we will call with when we navigate to it by push
+      builder: (context, state) => const BookDetailsView(),
     ),
   ],
 );

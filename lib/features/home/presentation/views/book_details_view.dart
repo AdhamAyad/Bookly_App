@@ -7,7 +7,7 @@ class BookDetailsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: BookdetailsViewBody(),
+      body: SafeArea(child: BookdetailsViewBody()), //? SafeArea → اتاكد ان الصفحه هتتبنى فى المكان الامن و مش هتكون حاجه مغطيه عليه
     );
   }
 }
