@@ -24,7 +24,11 @@ class HomeViewBody extends StatelessWidget {
             'Best Seller',//? copyWith → to make copy of it and edit
             style: Styles.textStyle18,
           ),
+
+          SizedBox(height: 20,),
+
            BestSellerListViewItem()
+
         ],
       ),
     );
@@ -37,7 +41,7 @@ class BestSellerListViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 150,
+      height: 140,
       child: Row(
         children: [
           AspectRatio(
@@ -56,6 +60,21 @@ class BestSellerListViewItem extends StatelessWidget {
                       fit: BoxFit.fill //? to fill photo to to take space
                       )),
             ),
+          ),
+           Column(
+            children: [
+
+              SizedBox( //? make width for text to be good at viwed 
+                width: MediaQuery.of(context).size.width *.5, // todo : to be responsive with other devices
+                child: const Text(
+                'Harry Potter And The Gobelt Of Fire',
+                maxLines: 2, //? maxLines → جعل النص لا يتخطى السطرين 
+                overflow: TextOverflow.ellipsis, //? if words are many than width it erites dots to tell user that there a words that canot view
+                style: Styles.textStyle20,
+                )
+                )
+
+            ],
           )
         ],
       ),
