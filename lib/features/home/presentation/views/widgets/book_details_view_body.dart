@@ -1,8 +1,9 @@
 import 'package:bookly/core/utils/styles.dart';
-import 'package:bookly/core/widgets/custom_button.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_raiting.dart';
+import 'package:bookly/features/home/presentation/views/widgets/books_action.dart';
 import 'package:bookly/features/home/presentation/views/widgets/custom_book_details_app_bar.dart';
 import 'package:bookly/features/home/presentation/views/widgets/custom_book_item.dart';
+import 'package:bookly/features/home/presentation/views/widgets/similar_books_list_view.dart';
 import 'package:flutter/material.dart';
 
 class BookdetailsViewBody extends StatelessWidget {
@@ -54,41 +55,23 @@ class BookdetailsViewBody extends StatelessWidget {
           const SizedBox(height: 37,),
 
           const BooksAction(),
+
+          const SizedBox(height: 43,),
+
+          Align( //? align → to put it only in centerleft
+            alignment: Alignment.centerLeft,
+            child: Text('You May Also Like',style: Styles.textStyle14.copyWith(fontWeight: FontWeight.w900),)),
+
+            const SizedBox(height: 16,),
+
+            const SimilerBooksListView(),
+            
         ],
       ),
     );
   }
 }
 
-class BooksAction extends StatelessWidget {
-  const BooksAction({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 8),
-      child:  Row(
-        children: [
-          Expanded(//? expanded to take all space in row that it can to take
-              child: CustomButton(
-                text: r'19.99$',
-            textColor: Colors.black,
-            backgroundColor: Colors.white,
-            borderRaduis: BorderRadius.only(
-                topLeft: Radius.circular(32), bottomLeft: Radius.circular(32)), 
-          )),
-    
-          Expanded(//? expanded to take all space in row that it can to take
-              child: CustomButton(
-                fontSize: 16,
-                text: 'Free Preview',
-            textColor: Colors.white,
-            backgroundColor: Color(0XFFEF8262),
-            borderRaduis: BorderRadius.only(
-                topRight: Radius.circular(32), bottomRight: Radius.circular(32)), 
-          )),
-        ],
-      ),
-    );
-  }
-}
+
+
