@@ -42,7 +42,7 @@ class _SplashViewBodyState extends State<SplashViewBody> with SingleTickerProvid
       crossAxisAlignment: CrossAxisAlignment.stretch, //? to take all width that image can to take
       children: [
 
-        SlidingLogo(slideingLogoAnimation: slideingLogoAnimation),
+        SlidingLogo(slideingLogoAnimation: slideingLogoAnimation), //? give it the animation
         
         const SizedBox(height: 4,),
 
