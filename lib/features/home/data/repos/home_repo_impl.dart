@@ -7,14 +7,13 @@ import 'package:dio/dio.dart';
 
 class HomeRepoImpl implements HomeRepo {
   final ApiService apiService;
-
   HomeRepoImpl(this.apiService);
 
+  //! To Get Newest Books
   @override
   Future<Either<Failure, List<BookModel>>> fetchNewestBooks() async {
     try {
-  var data = await apiService.get( url: 'volumes?Filtering=free-ebooks&q=subject:programming&sorting=newest');
-
+  var data = await apiService.get( url: 'volumes?Filtering=free-ebooks&q=subject:programming&sorting=newest');//! we make sorting here for newest
           List<BookModel> books = [];
           for(var item in data['items']) //? item in data → becuse itis a list and into it theres a maps
           {
@@ -32,10 +31,26 @@ class HomeRepoImpl implements HomeRepo {
 }
 }
 
-
+  //! To Get Featured Books
   @override
-  Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() {
-    // TODO: implement fetchFeaturedBooks
-    throw UnimplementedError();
+  Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
+    try {
+  var data = await apiService.get( url: 'volumes?Filtering=free-ebooks&q=subject:programming');//! with out sorting
+
+          List<BookModel> books = [];
+          for(var item in data['items']) //? item in data → becuse itis a list and into it theres a maps
+          {
+            books.add(BookModel.fromJson(item));
+          }
+          return right(books);  //! thats if success return List of book model      
+}
+
+ on Exception catch (e) {
+  if(e is DioException)
+  {
+    return left(ServerFailure.fromDioException(e));
   }
+  return left(ServerFailure(e.toString()));
+}
+}
 }
