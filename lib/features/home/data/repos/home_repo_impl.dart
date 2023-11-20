@@ -33,6 +33,7 @@ class HomeRepoImpl implements HomeRepo {
 
   //! To Get Featured Books
   @override
+  //! it may return Failure object that inside it the message of error
   Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
     try {
   var data = await apiService.get( url: 'volumes?Filtering=free-ebooks&q=subject:programming');//! with out sorting
