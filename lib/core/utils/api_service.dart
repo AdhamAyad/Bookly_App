@@ -9,9 +9,7 @@ class ApiService
 
   Future<Map<String,dynamic>> get({required String url})
   async{
-
-    var response = await _dio.get('$_baseUrl$url'); //? get data
-    return response.data; //? return data as map
-
+     var response = await _dio.get('$_baseUrl$url'); //? get data
+     return response.data; //? return data as map
   }
-}
+}         
