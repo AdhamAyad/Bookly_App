@@ -19,9 +19,9 @@ class FeaturedBooksCubit extends Cubit<FeaturedBooksState> {
 
      //! in this metod we use either its may return failure or return list of booksmodel and handel the return
     result.fold((failure){ //? when right happens
-      emit(FeaturedBooksFailure(failure.errMessage));
+      emit(FeaturedBooksFailure(failure.errMessage)); //? emit state and give it the message of error that sent it failure object
     }, (books) { //? this when left happens
-      emit(FeaturedBooksSuccess(books));
+      emit(FeaturedBooksSuccess(books)); //? emit state and sent the list of books
     });
 
   }
