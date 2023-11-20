@@ -17,7 +17,7 @@ class FeaturedBooksListView extends StatelessWidget {
         return SizedBox(
           height: MediaQuery.of(context).size.height *.3, //? give hight to item in listview by sizedbox
           child: ListView.builder(
-            physics: const BouncingScrollPhysics(),
+            physics: const BouncingScrollPhysics(), //? make good anmation when you arrive to end of listview
             itemCount: state.books.length, //? lenght of listview
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {

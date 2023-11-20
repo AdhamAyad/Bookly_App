@@ -28,19 +28,20 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  get_it: ^7.6.4
+  cached_network_image: ^3.3.0 # to handel the errors that might happen with enter net and get it with a good fade
+  get_it: ^7.6.4 # refactor our code and handel reapeting code as a service locator
   flutter_bloc: ^8.1.3
   cupertino_icons: ^1.0.2
   dartz: ^0.10.1 # to able me to use either in functions
-  dio: ^5.3.3
+  dio: ^5.3.3 # get data from api
   equatable: ^2.0.5
   flutter:
     sdk: flutter
   font_awesome_flutter: ^10.6.0
-  go_router: ^12.0.0
-  google_fonts: ^6.1.0
+  go_router: ^12.0.0 # able me to navigate
+  google_fonts: ^6.1.0 # font and styels
 dev_dependencies:
-  flutter_lints: ^2.0.0
+  flutter_lints: ^3.0.1
   flutter_test:
     sdk: flutter
 
