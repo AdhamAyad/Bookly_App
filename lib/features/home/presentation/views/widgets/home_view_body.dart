@@ -30,7 +30,7 @@ class HomeViewBody extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20),
                 child: Text(
-                  'Newest Box', //? copyWith → to make copy of it and edit
+                  'Newest Books', //? copyWith → to make copy of it and edit
                   style: Styles.textStyle18,
                 ),
               ),

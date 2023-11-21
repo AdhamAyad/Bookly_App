@@ -22,9 +22,9 @@ class _SplashViewBodyState extends State<SplashViewBody> with SingleTickerProvid
   void initState() { //? initState → it runs before this widget runs
    
     super.initState();
-    InitSlidingAnimation(); //? to run text animation
-    InitSlidingLogo(); //? to run logo animation
-    NavigateToHomeAfter2Sec();
+    initSlidingAnimation(); //? to run text animation
+    initSlidingLogo(); //? to run logo animation
+    navigateToHomeAfter2Sec(); //? go to home page after 2 sec
   }
 
   
@@ -58,7 +58,7 @@ class _SplashViewBodyState extends State<SplashViewBody> with SingleTickerProvid
 
 
 
-  void InitSlidingAnimation() {
+  void initSlidingAnimation() {
     animationController = AnimationController(vsync: this, duration:const Duration(seconds: 1)); //? contriller that control animation time
     slideingTextAnimation = Tween<Offset>(begin:const Offset(0,2) ,end: Offset.zero).animate(animationController); //? animation what to do
     animationController.forward(); //? to run animation
@@ -69,12 +69,12 @@ class _SplashViewBodyState extends State<SplashViewBody> with SingleTickerProvid
     //  });
   }
 
-   void InitSlidingLogo() {
+   void initSlidingLogo() {
     slideingLogoAnimation = Tween<Offset>(begin:const Offset(1,0) ,end: Offset.zero).animate(animationController); //? animation what to do
     animationController.forward(); //? to run animation
   }
 
-  void NavigateToHomeAfter2Sec() {
+  void navigateToHomeAfter2Sec() {
     Future.delayed(const Duration(seconds: 2) , (){ //? Future.delayed(const Duration(seconds: 4) → this code will run after widget built with 4 sec
     // Get.to(()=>const HomeView(), transition: Transition.fade, duration: kTransitionDuration);//! after two sec navigate with transition 
     GoRouter.of(context).push(AppRouter.kHomeView); //? navigate to it by routers

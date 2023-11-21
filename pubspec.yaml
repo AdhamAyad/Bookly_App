@@ -28,6 +28,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  # shimmer → to build Ui thats appeare when loading same medium frame
   cached_network_image: ^3.3.0 # to handel the errors that might happen with enter net and get it with a good fade
   get_it: ^7.6.4 # refactor our code and handel reapeting code as a service locator
   flutter_bloc: ^8.1.3
