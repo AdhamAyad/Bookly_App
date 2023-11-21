@@ -13,14 +13,14 @@ class BookDetailsView extends StatefulWidget {
 
 class _BookDetailsViewState extends State<BookDetailsView> {
   @override
-  void initState() {
+  void initState() { //? every time before build this view it fetch data that will apreare
     BlocProvider.of<SimilerBooksCubit>(context).fetchSimilardBooks(category: widget.book.volumeInfo.categories![0]);
     super.initState();
   }
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: SafeArea(child: BookdetailsViewBody()), //? SafeArea → اتاكد ان الصفحه هتتبنى فى المكان الامن و مش هتكون حاجه مغطيه عليه
+    return Scaffold(
+      body: SafeArea(child: BookdetailsViewBody(book: widget.book,)), //? SafeArea → اتاكد ان الصفحه هتتبنى فى المكان الامن و مش هتكون حاجه مغطيه عليه
     );
   }
 }

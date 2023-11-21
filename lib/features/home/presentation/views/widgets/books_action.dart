@@ -12,7 +12,7 @@ class BooksAction extends StatelessWidget {
         children: [
           Expanded(//? expanded to take all space in row that it can to take
               child: CustomButton(
-                text: r'19.99$',
+                text: r'Free',
             textColor: Colors.black,
             backgroundColor: Colors.white,
             borderRaduis: BorderRadius.only(
@@ -22,7 +22,7 @@ class BooksAction extends StatelessWidget {
           Expanded(//? expanded to take all space in row that it can to take
               child: CustomButton(
                 fontSize: 16,
-                text: 'Free Preview',
+                text: 'Preview',
             textColor: Colors.white,
             backgroundColor: Color(0XFFEF8262),
             borderRaduis: BorderRadius.only(

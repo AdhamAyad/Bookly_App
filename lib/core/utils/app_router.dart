@@ -35,7 +35,7 @@ abstract class AppRouter {
         builder: (context, state) => BlocProvider(
           create: (context) => SimilerBooksCubit(getIt.get<HomeRepoImpl>()),
           child: BookDetailsView(
-            book: state.extra as BookModel,
+            book: state.extra as BookModel, //? to give it the data that sent
           ),
           ),
           
