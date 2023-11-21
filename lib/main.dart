@@ -23,7 +23,7 @@ class Bookly extends StatelessWidget {
     return MultiBlocProvider( //? provide code to use this cubit
       providers: [//! to handele our code
         BlocProvider(create:(context) => FeaturedBooksCubit(getIt.get<HomeRepoImpl>())..fetchFeaturedBooks()), //! ..fetch → call it after make provide and a copy of this cubit
-        BlocProvider(create: (context) => NewestBooksCubit(getIt.get<HomeRepoImpl>())), //? will go to the get_it it file and take the code that already writen
+        BlocProvider(create: (context) => NewestBooksCubit(getIt.get<HomeRepoImpl>())..fetchNewestBooks()), //? will go to the get_it it file and take the code that already writen
       ],
       child: MaterialApp.router( //? from get package ,get → have transition and faster than materialapp and less code than normal
         debugShowCheckedModeBanner: false,

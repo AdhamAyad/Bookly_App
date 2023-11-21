@@ -10,6 +10,7 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const CustomScrollView(
+      physics: BouncingScrollPhysics(), //? make good anmation when you arrive to end of listview,
       //? enable page to scroll
       slivers: [
 
@@ -29,7 +30,7 @@ class HomeViewBody extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20),
                 child: Text(
-                  'Best Seller', //? copyWith → to make copy of it and edit
+                  'Newest Box', //? copyWith → to make copy of it and edit
                   style: Styles.textStyle18,
                 ),
               ),

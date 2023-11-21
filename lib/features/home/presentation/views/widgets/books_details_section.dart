@@ -44,6 +44,8 @@ class BookDetailsSection extends StatelessWidget {
               height: 16,
             ),
             const BookRating(
+              rating: 12,
+              count: 12,
               mainAxisAlignment: MainAxisAlignment.center,
             ),
 

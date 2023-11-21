@@ -1,15 +1,16 @@
 import 'package:bookly/constants.dart';
 import 'package:bookly/core/utils/app_router.dart';
-import 'package:bookly/core/utils/assets.dart';
 import 'package:bookly/core/utils/styles.dart';
+import 'package:bookly/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_raiting.dart';
+import 'package:bookly/features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 
 class BookListViewItem extends StatelessWidget {
-  const BookListViewItem({super.key});
-
+  const BookListViewItem({super.key, required this.bookModel});
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -20,23 +21,7 @@ class BookListViewItem extends StatelessWidget {
         height: 140,
         child: Row(
           children: [
-            AspectRatio(
-              //! AspectRatio → save responsive of hight and width to be good on another device
-              aspectRatio: 2.6 / 4, //?width/hight
-              child: Container(
-                // height: MediaQuery.of(context).size.height * .36, //todo: use media quary to be responsive with any device
-                // width: MediaQuery.of(context).size.width * .4,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                   // color: Colors.red, //? to test code
-                    image: const DecorationImage(
-                        image: AssetImage(
-                          AssetsData.testImage,
-                        ),
-                        fit: BoxFit.fill //? to fill photo to to take space
-                        )),
-              ),
-            ),
+            CustomBookImage(imageUrl: bookModel.volumeInfo.imageLinks.thumbnail),
             const SizedBox(
               width: 15,
             ),
@@ -49,7 +34,7 @@ class BookListViewItem extends StatelessWidget {
                       width: MediaQuery.of(context).size.width *
                           .5, // todo : to be responsive with other devices
                       child: Text(
-                        'Harry Potter And The Gobelt Of Fire',
+                        bookModel.volumeInfo.title!,
                         maxLines: 2, //? maxLines → جعل النص لا يتخطى السطرين
                         overflow: TextOverflow
                             .ellipsis, //? if words are many than width it erites dots to tell user that there a words that canot view
@@ -60,8 +45,8 @@ class BookListViewItem extends StatelessWidget {
                     height: 3,
                   ),
             
-                  const Text(
-                    'J.K. Rowling',
+                  Text(
+                    bookModel.volumeInfo.authors![0],
                     style: Styles.textStyle14,
                   ),
             
@@ -71,11 +56,13 @@ class BookListViewItem extends StatelessWidget {
             
                    Row(
                     children: [
-                      Text(r'19.99 $' , style: Styles.textStyle20.copyWith(fontWeight: FontWeight.bold),),
+                      Text('Free' , style: Styles.textStyle20.copyWith(fontWeight: FontWeight.bold),),
     
                       const Spacer(), // todo: or main axis aliment spacebetwean
                                 
-                      const BookRating(),
+                      BookRating( //? we give it as two variabels not as a object
+                      rating: bookModel.volumeInfo.averageRating??0,
+                      count: bookModel.volumeInfo.ratingsCount??0,),
                                 
                     ],
                  )
@@ -88,4 +75,22 @@ class BookListViewItem extends StatelessWidget {
     );
   }
 }
+
+// AspectRatio(
+//               //! AspectRatio → save responsive of hight and width to be good on another device
+//               aspectRatio: 2.6 / 4, //?width/hight
+//               child: Container(
+//                 // height: MediaQuery.of(context).size.height * .36, //todo: use media quary to be responsive with any device
+//                 // width: MediaQuery.of(context).size.width * .4,
+//                 decoration: BoxDecoration(
+//                     borderRadius: BorderRadius.circular(8),
+//                    // color: Colors.red, //? to test code
+//                     image: const DecorationImage(
+//                         image: AssetImage(
+//                           AssetsData.testImage,
+//                         ),
+//                         fit: BoxFit.fill //? to fill photo to to take space
+//                         )),
+//               ),
+//             ),
 

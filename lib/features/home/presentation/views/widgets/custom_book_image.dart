@@ -12,7 +12,7 @@ class CustomBookImage extends StatelessWidget {
     return ClipRRect( //? use it to give it border radues
       borderRadius: BorderRadius.circular(16),
       child: AspectRatio( //! save responsive of hight and width to be good on another device
-      aspectRatio: 2.6/4, //?width/hight
+      aspectRatio: 2.6/4, //?width/hight , نسبه الطول للعرض فى المساحه المتاحه لها ايا كان حجمها
         //? CachedNetworkImage → is a widget comes from package and the images appears with a good fade
         child: CachedNetworkImage( //! with good fade and cashed it then we donot need to reload it again and handel if gives it a wrong url
           fit: BoxFit.fill, //? make it fill all space it have
