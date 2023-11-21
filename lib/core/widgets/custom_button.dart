@@ -9,13 +9,14 @@ class CustomButton extends StatelessWidget {
       {super.key,
       required this.backgroundColor,
       required this.textColor,
-      this.borderRaduis, required this.text, this.fontSize});
+      this.borderRaduis, required this.text, this.fontSize, this.onPressed});
 
   final Color backgroundColor;
   final Color textColor;
   final BorderRadius? borderRaduis; //? make it null to give it defult value in our code
   final String text;
   final double? fontSize; // todo : we can make it nullable becuse when it nullable it will take the defult value
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +34,7 @@ class CustomButton extends StatelessWidget {
                           16))
               ),
 
-          onPressed: () {},
+          onPressed: onPressed,
 
           child: Text(
             text,
